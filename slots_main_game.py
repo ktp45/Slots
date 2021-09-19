@@ -60,28 +60,21 @@ class MyGame(arcade.Window):
         self.sauce_list.append(arrow_up)
         self.sauce_list.append(arrow_down)
 
-        temp = None
-        for i in line:  # ugly declaration of how symbols look ,they could duplicate so dictionaries are not useful
-            if i == "k":
-                temp = arcade.Sprite("Resources/ktp4.png", SPRITE_SCALING_SYMBOL)
-            if i == "m":
-                temp = arcade.Sprite("Resources/maio.png", SPRITE_SCALING_SYMBOL)
-            if i == "v":
-                temp = arcade.Sprite("Resources/vinegar.png", SPRITE_SCALING_SYMBOL)
-            if i == "g":
-                temp = arcade.Sprite("Resources/gorch.png", SPRITE_SCALING_SYMBOL)
-            if i == "b":
-                temp = arcade.Sprite("Resources/bbq.png", SPRITE_SCALING_SYMBOL)
-            if i == "r":
-                temp = arcade.Sprite("Resources/ranch.png", SPRITE_SCALING_SYMBOL)
-            if i == "t":
-                temp = arcade.Sprite("Resources/tabasco.png", SPRITE_SCALING_SYMBOL)
-            if i == "s":
-                temp = arcade.Sprite("Resources/garlic.png", SPRITE_SCALING_SYMBOL)
-            if i == "o":
-                temp = arcade.Sprite("Resources/olive.png", SPRITE_SCALING_SYMBOL)
-            if i == "c":
-                temp = arcade.Sprite("Resources/sour.png", SPRITE_SCALING_SYMBOL)
+        temp = None  # declaration of how symbols look
+           translator = {
+            'k': 'ktp4',
+            'm': 'maio',
+            'v': 'vinegar',
+            'g': 'gorch',
+            'b': 'bbq',
+            'r': 'ranch',
+            't': 'tabasco',
+            's': 'garlic',
+            'o': 'olive',
+            'c': 'sour',
+        }
+        for ids in line:
+            temp = arcade.Sprite(f"Resources/{translator[ids]}.png", SPRITE_SCALING_SYMBOL)
 
             temp.center_x = posX
             temp.center_y = posY
